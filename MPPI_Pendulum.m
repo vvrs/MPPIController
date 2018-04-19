@@ -1,8 +1,8 @@
 clear all;
 clc;
 
-K = 100;
-N = 100;
+K = 500;
+N = 1000;
 iteration = 100;
 param.dt = 0.01;
 
@@ -13,7 +13,7 @@ param.g = 9.81;
 % param.alpha = 0.05;
 % param.gamma = param.lambda*(1-param.alpha);
 param.lambda = 1;
-param.variance = 1;
+param.variance = 2000;
 
 % Initial State
 x_init = [0 0 0 0];
@@ -35,13 +35,12 @@ X_sys(:,1) = x_init;
 for j = 1: iteration
     x(:,1) = x_init;
     for k = 1:K
-%         Stk(1,k) = param.variance*(randn(1)+4);
         for i = 1:N-1
-            delta_u(i,k) = param.variance*(randn(1)+4);
+            delta_u(i,k) = param.variance*(randn(1));
             x(:,i+1) = x(:,i) + Pendulam_Dynamics(x(1,i), x(2,i), x(3,i), x(4,i), (u(i)+delta_u(i,k)), param)*param.dt;
             Stk(i+1,k) = Stk(i,k) + cost_function(x(1,i), x(2,i), x(3,i), x(4,i));
         end
-        delta_u(N,k) = param.variance*(randn(1)+4);
+        delta_u(N,k) = param.variance*(randn(1));
         
     end
     for i = 1:N

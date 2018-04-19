@@ -6,7 +6,7 @@ l = param.l;
 g = param.g;
 dX(1) = x_dot;
 dX(2) = (u + mp*sin(theta)*(l*theta_dot^2 + g*cos(theta)))/(mc+mp*sin(theta)^2);
-dX(3) = theta_dot;
+dX(3) = rem(theta_dot,2*pi);
 dX(4) = (-u*cos(theta) - mp*l*theta_dot^2*cos(theta)*sin(theta)...
     -(mc+mp)*g*sin(theta))/(mc+mp*sin(theta)^2);
 % if(isnan(dX(1)))
