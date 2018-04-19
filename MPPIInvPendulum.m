@@ -4,10 +4,10 @@ close all;
 
 % Parameters
 param.N = 20; % length of finite horizon
-param.K = 100; % # samples 
-param.iterations = 100; % replacement to while(task_completed)
-param.x_t0 = [0 0 pi 0]; % initial state
-param.x_desired = [0 0 0 0]; % final state
+param.K = 10; % # samples 
+param.iterations = 500; % replacement to while(task_completed)
+param.x_t0 = [0 0 0 0]; % initial state
+param.x_desired = [0 0 pi 0]; % final state
 param.t0 = 0; % initial time
 param.dT = 0.1; % time step
 

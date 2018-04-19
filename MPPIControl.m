@@ -47,6 +47,7 @@ function [t_, states_history, u_opt] = MPPIControl(DynamicModel, param, running_
 				% t_c = t_0 + param.dT;
 
 				[t_c, x_c] = ode45(@(t,x)DynamicModel(t, x ,v(n-1,:),dW), [t_0 t_0+param.dT], x_0);
+				% [t_c, x_c] = ode45(@(t,x)DynamicModel(t, x ,u_opt(1,:),dW), [t_0 t_0+param.dT], x_0);
 
 				x_0 = x_c(end,:);
 				t_0 = t_c(end,:);
@@ -131,13 +132,20 @@ function weights = calculate_weights(S,lambda,samples)
 
     % Calculate weights
     n = 0;
+    n1 = 0;
     weights = zeros(1,samples);
-    beta = min(S);
+    % beta = min(S);
+    beta = 0;
     for k=1:1:samples-1
-        n = n + exp(-(1/lambda)*(S(k) - beta));
+        n = n + exp(-(1/lambda)*(S(k)));
     end
     for k=1:1:samples-1
-        weights(k) = (exp(-(1/lambda)*(S(k)-beta)))/n;
+    	noise = normrnd(0,param.sigma);
+        n1 = n1 + exp(-(1/lambda)*(S(k)))*noise;
     end
+    % for k=1:1:samples-1
+    %     weights(k) = (exp(-(1/lambda)*(S(k)-beta)))/n;
+    % end
+    weights = n1/n;
 
 end
