@@ -4,5 +4,4 @@ function [S] = cost_function(p, p_dot, theta, theta_dot)
 %     if isnan(S)
 %                p, p_dot, theta, theta_dot
 %     end
-    S = S;
 end
