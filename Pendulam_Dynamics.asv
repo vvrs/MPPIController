@@ -15,6 +15,11 @@ dX(4) = (-u*cos(theta) - mp*l*theta_dot^2*cos(theta)*sin(theta)...
 %     dX
 %     return;
 % end
+Det = (mc+mp*sin(theta)^2);
+
+vd = (u + theta_dot^2*(-sin(theta))*mp*l*sin(theta)^2 + (mp*g + mp*l*theta_dot^2*(-cos(theta))*cos(theta)*sin(theta)/Det;%Translational acceleration
+wd = (-F.*m.*Cos  + 0  + m*L*w.^2.*Sin.*M.*Cos  +  -(m*g*One + m*L*w.^2.*Cos)*(M+m).*Sin)/Det;%Angular Acceleration
+
 
 dX = dX';
 end
