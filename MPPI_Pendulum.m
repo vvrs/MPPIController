@@ -13,7 +13,8 @@ param.g = 9.81;
 % param.alpha = 0.05;
 % param.gamma = param.lambda*(1-param.alpha);
 param.lambda = 1;
-param.variance = 50;
+param.variance = 100;
+% param.variance = 50;
 
 % Initial State
 x_init = [0 0 0 0];
