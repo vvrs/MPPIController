@@ -11,8 +11,8 @@ function x_dot = DynamicModel(t, x ,u, dW)
 	l = 0.5;    % pendulum length (m)
 
 
-	lin_acc = (l*m*sin(x(3))*x(4)^2 + u(1)  - g*m*cos(x(3))*sin(x(3)))/(M + m*(sin(x(3))^2));
-	angular_acc = (-m*l*x(4)^2*sin(x(3))*cos(x(3))-u(1)*cos(x(3))+(g*sin(x(3)))*(m+M))/((sin(x(3))^2)*m*l + M*l);
+	lin_acc = (l*m*sin(x(3))*x(4)^2 + u(1)  + g*m*cos(x(3))*sin(x(3)))/(M + m*(sin(x(3))^2));
+	angular_acc = (-m*l*x(4)^2*sin(x(3))*cos(x(3))+u(1)*cos(x(3))-(g*sin(x(3)))*(m+M))/((sin(x(3))^2)*m*l + M*l);
 
 	x_dot = [x(2) + dW(1);
 	         lin_acc + dW(2);
