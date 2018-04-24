@@ -95,7 +95,7 @@ def total_entropy(Sk, del_uk):
     sum1 = 0
     sum2 = 0
     for i in range(n):
-        sum1 += np.exp(-(1 / lambda_) * Sk[i]) * del_uk
+        sum1 += np.exp(-(1 / lambda_) * Sk[i]) * del_uk[i]
         sum2 += np.exp(-(1 / lambda_) * Sk[i])
 
     entropy = sum1 / sum2
@@ -123,13 +123,13 @@ def main_loop():
 
     X_sys = np.zeros((4, iteration+1))
 
-    U_sys = np.zeros((1, iteration))
-    cost = np.zeros((1, iteration))
+    U_sys = np.zeros(iteration)
+    cost = np.zeros(iteration)
 
     X_sys[:, 1] = x_init
 
-    u = np.zeros((N,1))
-    x = np.zeros((4, N))
+    u = np.zeros(N)
+    # x = np.zeros((4, N))
     delta_u = np.zeros((N, K))
     u_init = 1
 
@@ -137,23 +137,25 @@ def main_loop():
     x = np.zeros((4,N))
 
     for j in range(iteration):
-        Stk = np.zeros((1, K))
+        Stk = np.zeros(K)
 
         for k in range(K):
             x[:, 1] = x_init
             for i in range(N-1):
-                print("i>>",i)
-                delta_u[i, k] = variance * float(np.random.normal(1,1,1))
+                # print "i>>", i, " k>>", k
+                delta_u[i, k] = variance * float(np.random.normal(1, 1, 1))
                 x[:, i+1] = x[:, i] + pendulum_dynamics(x[0, i], x[1, i], x[2, i], x[3, i], (u[i] + delta_u[i, k]), mc, mp)*dt
+                # cost_val = cost_function(x[0, i+1], x[1, i+1], x[2, i+1], x[3, i+1], (u[i] + delta_u[i, k]))
+                # Stk[k] += cost_val
                 Stk[k] += cost_function(x[0, i+1], x[1, i+1], x[2, i+1], x[3, i+1], (u[i] + delta_u[i, k]))
             delta_u[N-1, k] = variance * float(np.random.normal(1,1,1))
-
+        # print "-"*80
         for i in range(N):
-            u[i] += total_entropy(Stk[:], delta_u[i,:])
+            u[i] += total_entropy(Stk, delta_u[i, :])
         U_sys[j] = u[0]
         X_sys[:, j+1] = X_sys[:, j] + pendulum_dynamics(X_sys[0, j], X_sys[1, j], X_sys[2, j], X_sys[3, j], u[1],mc,mp)*dt
         cost[j + 1] = cost_function(X_sys[0, j+1], X_sys[1, j+1], X_sys[2, j+1], X_sys[3, j+1], (u[i]+delta_u[i, k]))
-        for i in range(N):
+        for i in range(N-1):
             u[i] = u[i+1]
         u[N-1] = u_init
         x_init = X_sys[:, j+1]
