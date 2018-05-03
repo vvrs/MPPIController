@@ -1,3 +1,7 @@
+%------------------------------------------------------------------------------------------------------%
+% Author: Rajnish Tiwari, Vishnu Rudrasamudram, Ameya Wagh
+% Description: MPPI controller for inverted pendulum cartpole.
+%------------------------------------------------------------------------------------------------------%
 % clear all;
 clc;
 
@@ -18,7 +22,7 @@ param.variance = 100;
 x_init = [0 0 0 0];
 x_fin = [0 0 pi 0];
 
-% to store the system state
+% placeholder to store the system state
 X_sys = zeros(4,iteration+1);
 U_sys = zeros(1,iteration);
 cost  = zeros(1,iteration);
@@ -26,7 +30,7 @@ cost  = zeros(1,iteration);
 X_sys(:,1) = x_init;
 
 % Initial Input
-load('u_init');
+load('mat_files/u_init');
 u = Force;
 
 x = zeros(4,N);
@@ -41,6 +45,7 @@ X_sys(:,1) = x_init;
 for j = 1: iteration
     Stk = zeros(1,K);
     
+    % compute K trajectories with noise and also their running costs
     for k = 1:K
         x(:,1) = x_init;
         for i = 1:N-1
@@ -51,16 +56,21 @@ for j = 1: iteration
         delta_u(N,k) = param.variance*(randn(1));
         
     end
+
+    % Update input sequence
     for i = 1:N
         u(i) = u(i) + totalEntropy(Stk(:) , delta_u(i,:));
     end
     
+    % give control input to actuator
     U_sys(j) = u(1);
     X_sys(:,j+1) = X_sys(:,j) + Pendulam_Dynamics(X_sys(1, j), X_sys(2,j), X_sys(3,j), X_sys(4,j), u(1), param)*param.dt;
     cost(j+1) = cost_function(X_sys(1,j+1), X_sys(2,j+1), X_sys(3,j+1), X_sys(4,j+1),(u(i)+delta_u(i,k)));
     for i = 1:N-1
         u(i) = u(i+1);
     end
+
+    % append u_init to input sequence
     u(N) = u_init;
     x_init = X_sys(:,j+1);  
 end

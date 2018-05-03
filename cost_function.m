@@ -1,3 +1,7 @@
+%------------------------------------------------------------------------------------------------------%
+% Author: Rajnish Tiwari, Vishnu Rudrasamudram, Ameya Wagh
+% Description: Cost function for inverted pendulum
+%------------------------------------------------------------------------------------------------------%
 function [S] = cost_function(p, p_dot, theta, theta_dot, u)
     
     dt = 0.02;

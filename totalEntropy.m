@@ -1,3 +1,7 @@
+%------------------------------------------------------------------------------------------------------%
+% Author: Rajnish Tiwari, Vishnu Rudrasamudram, Ameya Wagh
+% Description: entropy function to be added to input sequence
+%------------------------------------------------------------------------------------------------------%
 function [entropy] = totalEntropy(Sk , del_uk)
 
     n = length(Sk);

@@ -1,3 +1,7 @@
+%------------------------------------------------------------------------------------------------------%
+% Author: Rajnish Tiwari, Vishnu Rudrasamudram, Ameya Wagh
+% Description: function to fetch current states of the system
+%------------------------------------------------------------------------------------------------------%
 function X = GetState(velocity,current_state,dt)
 
 	vx = velocity(1);

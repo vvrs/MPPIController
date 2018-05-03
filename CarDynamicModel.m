@@ -1,3 +1,7 @@
+%------------------------------------------------------------------------------------------------------%
+% Author: Rajnish Tiwari, Vishnu Rudrasamudram, Ameya Wagh
+% Description: Dynamic model for car.
+%------------------------------------------------------------------------------------------------------%
 function X_dot = CarModel(t,x,u)
 
 	% State (x)

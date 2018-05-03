@@ -1,3 +1,8 @@
+%------------------------------------------------------------------------------------------------------%
+% Author: Rajnish Tiwari, Vishnu Rudrasamudram, Ameya Wagh
+% Description: Dynamic model for inverted pendulum.
+%------------------------------------------------------------------------------------------------------%
+
 function dX = Pendulam_Dynamics(x, x_dot, theta, theta_dot, u, param)
 
 mc = param.mc;
