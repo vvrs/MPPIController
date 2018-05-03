@@ -118,8 +118,8 @@ def main_loop():
     g = 9.81
     lambda_ = 1
     variance = 100
-    x_init = np.array([0,0,0,0])
-    x_fin = np.array([0,0,np.pi,0])
+    x_init = np.array([0, 0, 0, 0])
+    x_fin = np.array([0, 0, np.pi, 0])
 
     X_sys = np.zeros((4, iteration+1))
 
