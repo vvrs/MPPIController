@@ -1,25 +1,6 @@
 import numpy as np
 
-"""
-mc = param.mc;
-mp = param.mp;
-l = param.l;
-g = param.g;
-dX(1) = x_dot;
-dX(2) = (u + mp*sin(theta)*(l*theta_dot^2 + g*cos(theta)))/(mc+mp*sin(theta)^2);
-dX(3) = theta_dot;
-% dX(3) = rem(theta_dot,2*pi);
-dX(4) = (-u*cos(theta) - mp*l*theta_dot^2*cos(theta)*sin(theta)...
-    -(mc+mp)*g*sin(theta))/(mc+mp*sin(theta)^2);
-% if(isnan(dX(1)))
-%     u
-%     dX
-%     return;
-% end
 
-dX = dX';
-end
-"""
 
 l = 0.25
 g = 9.81
@@ -34,31 +15,6 @@ def pendulum_dynamics(x, x_dot, theta, theta_dot, u, mc, mp):
     return np.array(dx)
 
 
-"""
-function [S] = cost_function(p, p_dot, theta, theta_dot, u)
-
-    dt = 0.02;
-%     S = (0.1*p^2 + 0.5*(1+cos(theta))^2 + 0.1*theta_dot^2 + p_dot^2+ 100*abs(p+p_dot) +...
-%         100*abs(abs(pi - theta) + theta_dot))*dt/10000;
-%     S = (10*abs( p+ 0.1*p_dot) + 100*abs(abs(pi - theta) + 0.1*theta_dot))*dt/10000;
-%      S = (40*p^2 + 50*(1+cos(theta))^2 + 0.1*theta_dot^2 +0.01*(p+p_dot)^2 + ...
-%          0.01*(p_dot - theta_dot)^2)*dt/1000;
-%      S = (10*p^2 + 50*(1+cos(theta))^2 + 0.1*theta_dot^2 +0.01*(p+p_dot)^2)*dt/1000;
-%      S = (p^2 + 5*(1+cos(theta))^2 + 0.0001*theta_dot^2 +0.0001*p_dot^2 + 0.1*u^2*1e-6)*dt;
-%      S = ((p)^2 + 10*(pi - abs(theta))^2 + 1*abs(theta_dot)^1/2 + 1*abs(p_dot)^0.5)*dt/100;
-%      S = (10*abs(p)^2 + 100*(1+cos(theta))^2 + 0.1*theta_dot^2 + 0.1*p_dot^2)*dt/10;
-%     result S = (10*abs(p)^2 + 100*(1+cos(theta))^2 + 1*theta_dot^2 + 1*p_dot^2)*dt/10;
-    S = (20*abs(p)^2 + 100*(1+cos(theta))^2 + 1*theta_dot^2 + 1*p_dot^2)*dt/10;
-%     S = (1*abs(p)^2 + 500*(1+cos(theta))^2 + 1*theta_dot^2 + 1*p_dot^2)*dt/10;
-     if p>8
-         S = S + 0;
-     end
-
-%     if isnan(S
-%                p, p_dot, theta, theta_dot
-%     end
-end
-"""
 
 
 def cost_function(p, p_dot, theta, theta_dot, u):
@@ -69,24 +25,6 @@ def cost_function(p, p_dot, theta, theta_dot, u):
     return S
 
 
-"""
-function [entropy] = totalEntropy(Sk , del_uk)
-%     Sk = Sk./sum(Sk);
-%     alpha = min(Sk);
-%     Sk = Sk-alpha;
-%     del_uk = del_uk./sum(del_uk);
-    n = length(Sk);
-    lambda = 10;
-    sum1 = 0;
-    sum2 = 0;
-    for i = 1:n
-        sum1 = sum1 + exp(-(1/lambda)*Sk(i))*del_uk(i);
-        sum2 = sum2 + exp(-(1/lambda)*Sk(i));
-    end
-    entropy = sum1/sum2;
-
-end
-"""
 
 
 def total_entropy(Sk, del_uk):
@@ -102,9 +40,7 @@ def total_entropy(Sk, del_uk):
     return entropy
 
 
-"""
 
-"""
 
 def main_loop():
     K = 1000
@@ -165,4 +101,4 @@ def main_loop():
 
 main_loop()
 
-print("Hello world")
+print("MPPI controller for inverted pendulum cart pole")

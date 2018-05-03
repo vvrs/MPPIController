@@ -1,8 +1,5 @@
 function [entropy] = totalEntropy(Sk , del_uk)
-%     Sk = Sk./sum(Sk);
-%     alpha = min(Sk);
-%     Sk = Sk-alpha;
-%     del_uk = del_uk./sum(del_uk);
+
     n = length(Sk);
     lambda = 10;
     sum1 = 0;
