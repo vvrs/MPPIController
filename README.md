@@ -13,14 +13,19 @@ The project is to conduct a study on Model Predictive Path Integral (MPPI) Contr
 - [Information Theoretic Model Predictive Control: Theory and Applications to Autonomous Driving](https://arxiv.org/abs/1707.02342)
 
 For more details on the work, check this [report](https://github.com/vvrs/MPPIController/tree/master/report/report_MPPI.pdf).
+<br>
 #### How to run
+---------------
 
 Goto _matlab\_implementation_ directory in MATLAB and run
 ```
 MPPI_Pendulum.m
 ```
 
+<br>
+
 #### Result
+-----------
 
 <div align='center'>
   <img src="https://raw.githubusercontent.com/vvrs/MPPIController/master/matlab_implementation/res/anim.gif"/>
@@ -29,7 +34,3 @@ MPPI_Pendulum.m
 <div align='center'>
   <img src="https://raw.githubusercontent.com/vvrs/MPPIController/master/matlab_implementation/res/states.png"/>
 </div>
-%![Animation](https://raw.githubusercontent.com/vvrs/MPPIController/master/matlab_implementation/res/anim.gif)
-
-%![States](https://raw.githubusercontent.com/vvrs/MPPIController/master/matlab_implementation/res/states.png)
-
