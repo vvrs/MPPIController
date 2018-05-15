@@ -21,20 +21,7 @@ MPPI_Pendulum.m
 ```
 
 #### Result
-![Animation](https://github.com/vvrs/MPPIController/tree/master/matlab_implementation/res/anim.gif)
+![Animation](https://raw.githubusercontent.com/vvrs/MPPIController/master/matlab_implementation/res/anim.gif)
 
-<div align="center">
-<img src="https://github.com/vvrs/MPPIController/tree/master/matlab_implementation/res/anim.gif" alt="none" title="animation" width="500">
-</div>
-![States](https://github.com/vvrs/MPPIController/tree/master/matlab_implementation/res/states.png)
+![States](https://raw.githubusercontent.com/vvrs/MPPIController/master/matlab_implementation/res/states.png)
 
-<div align="center">
-<img src="https://github.com/vvrs/MPPIController/tree/master/matlab_implementation/res/states.png" alt="none" title="states" width="500">
-</div>
-
-
-## Model predictive speed and steering control
-
-Path tracking simulation with iterative linear model predictive speed and steering control.
-
-<img src="https://github.com/AtsushiSakai/PythonRobotics/raw/master/PathTracking/model_predictive_speed_and_steer_control/animation.gif" width="640">
