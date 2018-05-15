@@ -21,7 +21,15 @@ MPPI_Pendulum.m
 ```
 
 #### Result
-![Animation](https://raw.githubusercontent.com/vvrs/MPPIController/master/matlab_implementation/res/anim.gif)
 
-![States](https://raw.githubusercontent.com/vvrs/MPPIController/master/matlab_implementation/res/states.png)
+<div align='center'>
+  <img src="https://raw.githubusercontent.com/vvrs/MPPIController/master/matlab_implementation/res/anim.gif"/>
+</div>
+
+<div align='center'>
+  <img src="https://raw.githubusercontent.com/vvrs/MPPIController/master/matlab_implementation/res/states.png"/>
+</div>
+%![Animation](https://raw.githubusercontent.com/vvrs/MPPIController/master/matlab_implementation/res/anim.gif)
+
+%![States](https://raw.githubusercontent.com/vvrs/MPPIController/master/matlab_implementation/res/states.png)
 
