@@ -2,7 +2,7 @@
 
 ### Study of PI based stochastic optimal control and Implementation of MPPI for Aggressive Driving
 
-This project was submitted as the course project for RBE502 - Robot Control  in Spring 2018 at Worcester Polytechnic Institute. 
+This project was submitted as a course project for RBE502 - Robot Control  in Spring 2018 at Worcester Polytechnic Institute. 
 
 Course page - [https://users.wpi.edu/~jfu2/rbe502/index.html](https://users.wpi.edu/~jfu2/rbe502/index.html)
 
