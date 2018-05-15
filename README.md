@@ -22,5 +22,7 @@ MPPI_Pendulum.m
 
 ### Result
 ![Animation](https://github.com/vvrs/MPPIController/tree/master/matlab_implementation/res/anim.gif)
+<img src="https://github.com/vvrs/MPPIController/tree/master/matlab_implementation/res/anim.gif">
 
 ![States](https://github.com/vvrs/MPPIController/tree/master/matlab_implementation/res/states.png)
+<img src="https://github.com/vvrs/MPPIController/tree/master/matlab_implementation/res/states.png">
