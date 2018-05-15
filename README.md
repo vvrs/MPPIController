@@ -12,7 +12,7 @@ The project is to conduct a study on Model Predictive Path Integral (MPPI) Contr
 - [Model Predictive Path Integral Control: From Theory to Parallel Computation](https://arc.aiaa.org/doi/abs/10.2514/1.G001921)
 - [Information Theoretic Model Predictive Control: Theory and Applications to Autonomous Driving](https://arxiv.org/abs/1707.02342)
 
-For more details on the work, check this [report]((https://github.com/vvrs/MPPIController/tree/master/report/report_MPPI.pdf)
+For more details on the work, check this [report](https://github.com/vvrs/MPPIController/tree/master/report/report_MPPI.pdf).
 #### How to run
 
 Goto _matlab\_implementation_ directory in MATLAB and run
@@ -22,7 +22,10 @@ MPPI_Pendulum.m
 
 #### Result
 ![Animation](https://github.com/vvrs/MPPIController/tree/master/matlab_implementation/res/anim.gif)
-<img src="https://github.com/vvrs/MPPIController/tree/master/matlab_implementation/res/anim.gif">
-
+<div align="center">
+<img src="https://github.com/vvrs/MPPIController/tree/master/matlab_implementation/res/anim.gif" alt="none" title="animation" width="500">
+</div>
 ![States](https://github.com/vvrs/MPPIController/tree/master/matlab_implementation/res/states.png)
-<img src="https://github.com/vvrs/MPPIController/tree/master/matlab_implementation/res/states.png">
+<div align="center">
+<img src="https://github.com/vvrs/MPPIController/tree/master/matlab_implementation/res/states.png" alt="none" title="states" width="500">
+</div>
