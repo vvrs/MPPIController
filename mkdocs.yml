@@ -1,5 +1,5 @@
 theme:
-  name: mppi
+  name: null
   custom_dir: mkdocs-material/material
 
   # 404 page
